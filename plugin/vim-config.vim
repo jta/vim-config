@@ -16,7 +16,7 @@ set hidden                " Allow buffers to be backgrounded without being saved
 set laststatus=2          " Always show the status bar
 set list                  " Show invisible characters
 set listchars=tab:›\ ,eol:¬,trail:⋅ "Set the characters for the invisibles
-set number
+set nonumber
 set ruler                 " Show the line number and column in the status bar
 set t_Co=256              " Use 256 colors
 set scrolloff=999         " Keep the cursor centered in the screen

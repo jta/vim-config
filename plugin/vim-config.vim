@@ -26,6 +26,7 @@ set splitbelow            " Splits show up below by default
 set splitright            " Splits go to the right by default
 set title                 " Set the title for gvim
 set visualbell            " Use a visual bell to notify us
+set signcolumn=yes        " Reserve sign column for symbols
 
 " Customize session options. Namely, I don't want to save hidden and
 " unloaded buffers or empty windows.
@@ -86,7 +87,7 @@ inoremap Jk <esc>
 inoremap JK <esc>
 
 " Shortcut to edit vim-config
-nmap <silent> <leader>vimmisc :execute "e " . g:vim_home_path . "/plugged/vim-misc/plugin/vim-config.vim"<CR>
+nmap <silent> <leader>vim :execute "e " . g:vim_home_path . "/plugged/vim-config/plugin/vim-config.vim"<CR>
 
 " Make navigating around splits easier
 nnoremap <C-j> <C-w>j

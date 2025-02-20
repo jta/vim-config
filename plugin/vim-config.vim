@@ -147,3 +147,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Don't fold anything.
 autocmd BufWinEnter * set foldlevel=999999
+
+"----------------------------------------------------------------------
+" fzf options
+"----------------------------------------------------------------------
+" Show fzf at the bottom taking up ~40% of the screen
+let g:fzf_layout = { 'down': '~40%' }

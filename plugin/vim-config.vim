@@ -166,3 +166,4 @@ else
 endif
 
 nnoremap <leader>t :TestNearest<CR>
+nnoremap <leader>T :TestFile<CR>

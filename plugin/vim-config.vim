@@ -153,3 +153,16 @@ autocmd BufWinEnter * set foldlevel=999999
 "----------------------------------------------------------------------
 " Show fzf at the bottom taking up ~40% of the screen
 let g:fzf_layout = { 'down': '~40%' }
+
+"----------------------------------------------------------------------
+" vim-test options
+"----------------------------------------------------------------------
+if has('nvim')
+    let g:test#strategy = 'neovim'
+    let g:test#neovim#term_position = 'botright 15 split'
+else
+    let g:test#strategy = 'vimterminal'
+    let g:test#vimterminal#term_position = 'botright 15 split'
+endif
+
+nnoremap <leader>t :TestNearest<CR>

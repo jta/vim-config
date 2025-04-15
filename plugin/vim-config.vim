@@ -165,5 +165,9 @@ else
     let g:test#vimterminal#term_position = 'botright 15 split'
 endif
 
+if has('clipboard')
+  set clipboard=unnamedplus
+endif
+
 nnoremap <leader>t :TestNearest<CR>
 nnoremap <leader>T :TestFile<CR>

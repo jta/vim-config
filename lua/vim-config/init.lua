@@ -5,8 +5,6 @@
 ---------------------------------------------------------------------
 -- LSP Clients
 ---------------------------------------------------------------------
-local nvim_lsp = require('lspconfig')
-
 vim.diagnostic.config({
   virtual_text = false,      -- Disable inline text errors
   signs = true,              -- Show errors in the sign column
@@ -64,7 +62,8 @@ end
 -- map buffer local keybindings when the language server attaches
 local servers = { "gopls", "pyright", "clangd" }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup { on_attach = on_attach }
+  vim.lsp.config(lsp, { on_attach = on_attach })
+  vim.lsp.enable(lsp)
 end
 
 -- Auto-disable signcolumn when all LSP clients detach
@@ -77,7 +76,7 @@ vim.api.nvim_create_autocmd("LspDetach", {
 ---------------------------------------------------------------------
 -- Treesitter
 ---------------------------------------------------------------------
-require'nvim-treesitter.configs'.setup {
+require'nvim-treesitter'.setup {
   highlight = {
     enable = true,
   },

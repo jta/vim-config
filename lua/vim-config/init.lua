@@ -7,7 +7,14 @@
 ---------------------------------------------------------------------
 vim.diagnostic.config({
   virtual_text = false,      -- Disable inline text errors
-  signs = true,              -- Show errors in the sign column
+  signs = {                  -- Show errors in the sign column
+    text = {
+      [vim.diagnostic.severity.ERROR] = "✖ ",
+      [vim.diagnostic.severity.WARN] = "⚠ ",
+      [vim.diagnostic.severity.HINT] = "➤ ",
+      [vim.diagnostic.severity.INFO] = "ℹ ",
+    },
+  },
   underline = true,          -- Enable underlining of errors
   update_in_insert = false,  -- Prevent real-time updates
   severity_sort = true,      -- Sort errors by severity
@@ -16,13 +23,6 @@ vim.diagnostic.config({
 -- Function to enable signcolumn when LSP attaches
 local function enable_signcolumn()
   vim.opt.signcolumn = "yes"
-
-  -- replace diagnostic signs
-  local signs = { Error = "✖ ", Warn = "⚠ ", Hint = "➤ ", Info = "ℹ " }
-  for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-  end
 end
 
 -- Function to disable signcolumn when no LSPs are attached
